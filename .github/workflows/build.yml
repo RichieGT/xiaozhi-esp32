@@ -110,3 +110,11 @@ jobs:
           name: xiaozhi_${{ matrix.name }}_${{ github.sha }}.bin
           path: build/merged-binary.bin
           if-no-files-found: error
+      - name: Force Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware-botanico
+          path: |
+            build/*.bin
+            build/partition_table/*.bin
+            build/bootloader/*.bin
